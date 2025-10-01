@@ -10,23 +10,25 @@
   <!-- Header -->
   <header class="site-header">
     <div class="logo">Babify</div>
-    <nav>
+    <nav id="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="products.html" class="active">Products</a>
       <a href="collections.html">Collections</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <button class="hamburger" id="hamburger">&#9776;</button>
   </header>
 
   <!-- Product Categories -->
+   <main>
   <section class="product-categories">
-    <h2>Our Collections</h2>
+    <h1>Our Collections</h1>
     <ul>
       <li><a href="#onesies">Onesies</a></li>
       <li><a href="#shoes">Shoes</a></li>
       <li><a href="#dresses">Dresses</a></li>
-       <li><a href="#accessories">Accessories</a></li>
+      <li><a href="#accessories">Accessories</a></li>
       <li><a href="#twin">Twin Combo</a></li>
       <li><a href="#little-gents">Little Gents</a></li>  
     </ul>
@@ -34,7 +36,7 @@
 
   <!-- Onesies Section -->
   <section id="onesies" class="product-collection">
-    <h3>Onesies</h3>
+    <h2>Onesies</h2>
     <div class="product-grid">
       <div class="product-card">
         <img src="images/Onesei3.jpg" alt="Baby Onesie 1">
@@ -71,7 +73,7 @@
 
   <!-- Shoes Section -->
   <section id="shoes" class="product-collection">
-    <h3>Shoes</h3>
+    <h2>Shoes</h2>
     <div class="product-grid">
       <div class="product-card">
         <img src="images/Shoe1.heic" alt="Baby Shoes 1">
@@ -129,7 +131,7 @@
   </section>
   <!-- Accessories Section -->
 <section id="accessories" class="product-collection">
-  <h3>Accessories</h3>
+  <h2>Accessories</h2>
   <div class="product-grid">
     <div class="product-card">
       <img src="images/hat1.jpg" alt="Baby Hat">
@@ -149,7 +151,7 @@
   </div>
   <!--Twin Section-->
   <section id="twin" class="product-collection">
-    <h3>Twin Combo</h3>
+    <h2>Twin Combo</h2>
     <div class="product-grid">
       <div class="product-card">
         <img src="images/Twin1.jpg" alt="Twin Combo 1">
@@ -171,7 +173,7 @@
 
   <!-- Little Gents Section -->
 <section id="little-gents" class="product-collection">
-  <h3>Little Gents</h3>
+  <h2>Little Gents</h2>
   <div class="product-grid">
     <div class="product-card">
       <img src="images/Gent2.jpg" alt="Boys T-shirt & Shorts">
@@ -195,10 +197,12 @@
     </div>
   </div>
 </section>
+</main>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Babify | All Rights Reserved</p>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
