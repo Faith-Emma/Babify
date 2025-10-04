@@ -18,6 +18,10 @@
       <a href="contact.html">Contact</a>
     </nav>
     <button class="hamburger" id="hamburger">&#9776;</button>
+  
+  <div class="cart-icon" id="cartBtn">
+  🛒 <span id="cart-count">0</span>
+</div>
   </header>
 
   <!-- Product Categories -->
@@ -38,10 +42,16 @@
   <section id="onesies" class="product-collection">
     <h2>Onesies</h2>
     <div class="product-grid">
-      <div class="product-card">
+      <div class="product-card"
+     data-name="Soft Cotton Onesie"
+      data-price="1200"
+      data-age="0-12months"
+      data-description="A soft cotton onesie perfect for newborn comfort.">
         <img src="images/Onesei3.jpg" alt="Baby Onesie 1">
         <h4>Soft Cotton Onesie</h4>
-        <p>KSh 1,200</p>
+        <p>1,200</p>
+         <!-- Add to Cart Button -->
+       <button class="add-to-cart">Add to Cart</button>
       </div>
       <div class="product-card">
         <img src="images/Onesei1.jpg" alt="Baby Onesie 2">
@@ -178,8 +188,12 @@
     <div class="product-card">
       <img src="images/Gent2.jpg" alt="Boys T-shirt & Shorts">
       <h4>Cool T-shirt & Shorts</h4>
-      <p>KSh 1,800</p>
-    </div>
+      <p>1,800</p>
+
+       <!-- Add to Cart Button -->
+  <button class="add-to-cart">Add to Cart</button>
+    
+</div>
     <div class="product-card">
       <img src="images/Gent3.jpg" alt="Boys Jumpsuit">
       <h4>Bowneck Jumpsuit</h4>
@@ -198,6 +212,10 @@
   </div>
 </section>
 </main>
+
+<div class="view-gallery">
+<a href="collections.html#gallery" class="btn btn-secondary">View Full Gallery</a>
+</div>
 
   <!-- Footer -->
   <footer>
