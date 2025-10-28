@@ -8,14 +8,22 @@ if (hamburger) {
   hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("active");
   });
+
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll("#nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+    });
+  });
+
+  // (Optional) Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+      navLinks.classList.remove("active");
+    }
+  });
 }
 
-// Close mobile menu when a link is clicked
-document.querySelectorAll("#nav-links a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("active");
-  });
-});
 
 // -------------------
 // Modal Functionality
