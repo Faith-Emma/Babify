@@ -648,3 +648,45 @@ footer {
 #clear-cart:hover {
   background: #555;
 }
+
+/* Fix mobile menu alignment (centered and narrow) */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    position: absolute;
+    top: 60px; /* adjust to match your header height */
+    right: 50%;
+    transform: translateX(50%); /* centers the dropdown */
+    width: 200px; /* controls the dropdown width */
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    z-index: 1000;
+  }
+
+  nav a {
+    display: block;
+    padding: 10px 0;
+    color: #333;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  nav a:last-child {
+    border-bottom: none;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+}
