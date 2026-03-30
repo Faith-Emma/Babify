@@ -145,20 +145,7 @@ body {
   margin: 20px auto;
   display: block;
 }
-.btn {
-  display: inline-block;
-  background-color: #ff6f61; /* a nice babywear color */
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
 
-.btn:hover {
-  background-color: #e65b50;
-}
 /* Contact Section */
 .contact {
   max-width: 800px;
@@ -689,4 +676,19 @@ footer {
     display: block;
     cursor: pointer;
   }
+}
+#checkout-btn {
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#checkout-btn:hover {
+  background: #1ebe5d;
 }

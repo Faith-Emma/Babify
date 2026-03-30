@@ -87,8 +87,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const rawPrice = priceText.replace(/[^\d]/g, "");
       const price = parseInt(rawPrice, 10) || 0;
 
-      cart.push({ name, price });
-      renderCart();
+      const existingItem = cart.find(item => item.name === name);
+
+if (existingItem) {
+  existingItem.quantity += 1;
+} else {
+  cart.push({ name, price, quantity: 1 });
+}
+
+renderCart();
     });
   });
 
@@ -123,6 +130,7 @@ if (cartBtn && cartModal) {
       cartModal.style.display = "none";
     }
   });
+  
 }
 
 // Function to render cart contents
@@ -137,15 +145,26 @@ function renderCartModal() {
   }
 
   let total = 0;
-  savedCart.forEach((item, index) => {
-    total += item.price;
-    const li = document.createElement("li");
-    li.innerHTML = `
+  
+savedCart.forEach((item, index) => {
+  total += item.price * (item.quantity || 1);
+
+  const li = document.createElement("li");
+  li.innerHTML = `
+    <div>
       ${item.name} - KSh ${item.price}
-      <button class="remove-item" data-index="${index}">Remove</button>
-    `;
-    cartItemsList.appendChild(li);
-  });
+      <br>
+      Qty:
+      <button class="decrease" data-index="${index}">-</button>
+      ${item.quantity || 1}
+      <button class="increase" data-index="${index}">+</button>
+    </div>
+    <button class="remove-item" data-index="${index}">Remove</button>
+  `;
+
+  cartItemsList.appendChild(li);
+});
+  
 
   cartTotal.textContent = `Total: KSh ${total}`;
 
@@ -159,6 +178,33 @@ function renderCartModal() {
       renderCart(); // update cart count
     });
   });
+  //Increase Quantity
+  document.querySelectorAll(".increase").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const index = e.target.dataset.index;
+      savedCart[index].quantity = (savedCart[index].quantity || 1) + 1;
+localStorage.setItem("cart", JSON.stringify(savedCart));
+      renderCartModal();
+      renderCart();
+    });
+  });
+//Decrease quantity
+document.querySelectorAll(".decrease").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const index = e.target.dataset.index;
+
+      if ((savedCart[index].quantity || 1) > 1) {
+        savedCart[index].quantity -= 1;
+      } else {
+        savedCart.splice(index, 1);
+      }
+
+      localStorage.setItem("cart", JSON.stringify(savedCart));
+      renderCartModal();
+      renderCart();
+    });
+  });
+  
 }
 
 // Clear all items
@@ -169,4 +215,31 @@ if (clearCartBtn) {
     renderCart();
   });
 }
+//WhatsApp Order
+const checkoutBtn = document.getElementById("checkout-btn");
 
+if (checkoutBtn) {
+  checkoutBtn.addEventListener("click", () => {
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (savedCart.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+
+    let message = "Hello, I would like to order:\n\n";
+    let total = 0;
+
+    savedCart.forEach(item => {
+      message += `${item.name} (x${item.quantity}) - KSh ${item.price * item.quantity}\n`;
+      total += item.price * item.quantity;
+    });
+
+    message += `\nTotal: KSh ${total}`;
+
+    const phoneNumber = "254740787540"; //  PUT YOUR NUMBER HERE
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
+  });
+}
