@@ -139,7 +139,7 @@ function renderCartModal() {
   const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
   if (savedCart.length === 0) {
-    cartItemsList.innerHTML = "<p>Your cart is empty.</p>";
+    cartItemsList.innerHTML = "<p>Your cart is empty. Start Shopping.</p>";
     cartTotal.textContent = "";
     return;
   }
@@ -227,7 +227,7 @@ if (checkoutBtn) {
       return;
     }
 
-    let message = "Hello, I would like to order:\n\n";
+    let message = "Hello Babify 👶,\n\nI would like to order:\n\n";
     let total = 0;
 
     savedCart.forEach(item => {
@@ -241,5 +241,38 @@ if (checkoutBtn) {
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
     window.open(whatsappURL, "_blank");
+  });
+}
+//Mpesa
+const mpesaBtn = document.getElementById("mpesa-btn");
+
+if (mpesaBtn) {
+  mpesaBtn.addEventListener("click", () => {
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (savedCart.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+
+    let total = 0;
+    let message = "Hello Babify 👶,\n\nI have made an M-Pesa payment for:\n\n";
+
+    savedCart.forEach(item => {
+      const qty = item.quantity || 1;
+      total += item.price * qty;
+      message += `${item.name} (x${qty}) - KSh ${item.price * qty}\n`;
+    });
+
+    message += `\nTotal Paid: KSh ${total}\n\nPlease confirm my order.`;
+
+    // 👇 YOUR NUMBER
+    const phoneNumber = "254740787540";
+
+    // 👇 M-Pesa instructions popup
+    alert(`Please pay KSh ${total} via M-Pesa:\n\nPaybill: 522522\nAccount: Babify\n\nThen click OK to confirm.`);
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
   });
 }

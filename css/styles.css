@@ -694,3 +694,19 @@ footer {
 #checkout-btn:hover {
   background: #1ebe5d;
 }
+/*Mpesa Button*/
+#mpesa-btn {
+  background: #34B233;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#mpesa-btn:hover {
+  background: #2c9e2c;
+}
