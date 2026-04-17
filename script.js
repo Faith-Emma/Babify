@@ -11,8 +11,17 @@ if (hamburger) {
 
   // Close mobile menu when a link is clicked
   document.querySelectorAll("#nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (e) => {
       navLinks.classList.remove("active");
+       const href = link.getAttribute("href");
+
+    if (href) {
+      e.preventDefault(); // stop instant navigation
+      setTimeout(() => {
+        window.location.href = href;
+      }, 200); // small delay so menu closes first
+    }
+
     });
   });
 
