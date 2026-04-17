@@ -148,7 +148,8 @@ function renderCartModal() {
   const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
   if (savedCart.length === 0) {
-    cartItemsList.innerHTML = "<p>Your cart is empty. Start Shopping.</p>";
+    cartItemsList.innerHTML = "<p>Your cart is empty.</p>"
+      ;
     cartTotal.textContent = "";
     return;
   }

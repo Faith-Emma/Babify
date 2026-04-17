@@ -611,6 +611,12 @@ footer {
   width: 100%;
   cursor: pointer;
 }
+#cart-total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #ff6f91;
+}
 
 #clear-cart:hover {
   background: #555;
@@ -626,7 +632,7 @@ footer {
     background: #fff;
     position: absolute;
     top: 60px;
-    right: 50%;
+    right: 10px;
     transform: translateX(50%);
     width: 200px;
     padding: 1rem;
