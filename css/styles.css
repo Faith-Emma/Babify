@@ -13,6 +13,7 @@ body {
   line-height: 1.6;
   color: #333;
   background: #fafafa;
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -633,8 +634,9 @@ footer {
     position: absolute;
     top: 60px;
     right: 10px;
+    left: 10px;   /* 👈 THIS FIXES THE OVERFLOW */
+    width: auto;  /* 👈 allows it to fit screen */
     transform: translateX(50%);
-    width: 200px;
     padding: 1rem;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
