@@ -445,6 +445,7 @@ footer {
 
 .site-header {
   display: flex;
+  gap: 10px;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
@@ -641,6 +642,8 @@ footer {
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     z-index: 1000;
+    opacity: 0;
+    translate: translateY(-10px);
     transition: all 0.3s ease;
   }
 
@@ -661,6 +664,8 @@ footer {
 
   #nav-links.active {
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .hamburger {
