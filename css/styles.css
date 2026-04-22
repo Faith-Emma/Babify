@@ -1,6 +1,7 @@
 * Smooth scroll */
 html {
   scroll-behavior: smooth;
+  overflow-y: hidden;
 }
 
 /* Reset some defaults */
@@ -634,9 +635,8 @@ footer {
     position: absolute;
     top: 60px;
     right: 10px;
-    left: 10px;   /* 👈 THIS FIXES THE OVERFLOW */
-    width: auto;  /* 👈 allows it to fit screen */
-    transform: translateX(50%);
+    width: 90%;  /* 👈 allows it to fit screen */
+    max-width: 300px;
     padding: 1rem;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
@@ -651,6 +651,7 @@ footer {
     font-weight: 500;
     width: 100%;
     text-align: center;
+    box-sizing: border-box;
     border-bottom: 1px solid #f1f1f1;
   }
 
